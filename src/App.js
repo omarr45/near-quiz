@@ -1,6 +1,11 @@
 import './App.css';
 
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import {
+  HashRouter,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from 'react-router-dom';
 
 import CreateQuiz from './components/CreateQuiz';
 import { Flowbite } from 'flowbite-react';
@@ -25,7 +30,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <HashRouter>
       <Flowbite>
         <div className='App bg-white dark:bg-gray-900 min-h-screen'>
           <Navbar />
@@ -38,7 +43,7 @@ function App() {
           <Footer />
         </div>
       </Flowbite>
-    </Router>
+    </HashRouter>
   );
 }
 
