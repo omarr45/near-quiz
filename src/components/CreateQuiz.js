@@ -101,8 +101,8 @@ const CreateQuiz = () => {
         {/* Right Section */}
         <div className='flex flex-col items-center justify-center text-left px-6 py-8 mx-auto w-full lg:p-0'>
           <h2 className='mb-3 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
-            Add Questions
-            <button
+            Configure Questions
+            {/* <button
               className='h-8 w-8 text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium  rounded-full text-sm p-2.5 text-center inline-flex items-center justify-center ml-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800'
               onClick={(e) => {
                 e.preventDefault();
@@ -119,7 +119,7 @@ const CreateQuiz = () => {
                 }
               }}>
               <span className='text-lg'>-</span>
-            </button>
+            </button> */}
           </h2>
           <form
             className='space-y-2 md:space-y-4 w-full'
@@ -129,6 +129,14 @@ const CreateQuiz = () => {
               {Array.from(Array(questions), (e, i) => {
                 return <AddQuestion key={i} n={i + 1} />;
               })}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setQuestions(questions + 1);
+                }}
+                className='text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-md text-md p-2.5 text-center inline-flex items-center justify-center dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800'>
+                Add a new question
+              </button>
             </div>
             <button
               className='mx-auto flex items-center bg-blue-500 hover:bg-blue-700 text-white text-xl font-semibold py-2 px-4 rounded'
