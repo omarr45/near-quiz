@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/near-quiz/static/css/main.db29b1c8.css",
+    "main.js": "/near-quiz/static/js/main.3d690574.js",
+    "index.html": "/near-quiz/index.html",
+    "main.db29b1c8.css.map": "/near-quiz/static/css/main.db29b1c8.css.map",
+    "main.3d690574.js.map": "/near-quiz/static/js/main.3d690574.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db29b1c8.css",
+    "static/js/main.3d690574.js"
+  ]
+}
