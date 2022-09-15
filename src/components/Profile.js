@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import QuizCard from './QuizCard';
 import React from 'react';
 import { useState } from 'react';
@@ -19,16 +20,25 @@ const Profile = () => {
   ];
 
   return (
-    <div className='p-6 mx-auto max-w-4xl text-center lg:py-16 lg:px-12 dark:text-white'>
+    <div className='px-6 mx-auto max-w-4xl text-center lg:py-5 lg:px-12 dark:text-white'>
       {/* avatar */}
-      <div className='w-32 rounded-full overflow-hidden mx-auto mb-4'>
-        <img
-          src='https://placeimg.com/192/192/people'
-          alt='avatar placeholder'
-        />
-      </div>
-
-      <h2 className='text-3xl font-bold'>Omar</h2>
+      <header className='flex justify-evenly items-center pb-4'>
+        <div className='w-28 rounded-full overflow-hidden'>
+          <img
+            src='https://placeimg.com/192/192/people'
+            alt='avatar placeholder'
+          />
+        </div>
+        <div className='flex flex-col gap-2 mr-auto ml-8 items-start'>
+          <h2 className='text-3xl font-bold'>Welcome, Omar</h2>
+          <h4 className='text-1xl font-semibold'>omar45.testnet</h4>
+        </div>
+        <Link
+          to={'/create'}
+          className='inline-flex items-center py-2 px-3 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+          Create a new Quiz
+        </Link>
+      </header>
 
       <ul className='grid gap-4 w-full mt-4 font-bold md:grid-cols-2'>
         <li>
@@ -82,7 +92,7 @@ const Profile = () => {
           {createdQuizzesCards.map((card) => (
             <QuizCard title={card.name} btn={card.button} key={card.name} />
           ))}
-          <hr className='my-1' />
+          <hr className='my-1 dark:opacity-25' />
           <QuizCard isCreateNew />
         </div>
       )}

@@ -10,7 +10,7 @@ const CreateQuiz = () => {
       <h1 className='mb-8 text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl dark:text-white'>
         Create a new Quiz
       </h1>
-      <div className='flex flex-col items-start justify-between gap-0 w-full md:flex-row md:gap-8'>
+      <div className='flex flex-col items-start justify-between gap-0 w-full  md:gap-8'>
         {/* Left Section */}
         <div className='flex flex-col items-center justify-center text-left px-6 py-8 mx-auto w-full lg:p-0'>
           <form
@@ -20,7 +20,7 @@ const CreateQuiz = () => {
             <div>
               <label
                 htmlFor='title'
-                className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                className='block mb-2 text-md font-medium text-gray-900 dark:text-white'>
                 Title
               </label>
               <input
@@ -35,7 +35,7 @@ const CreateQuiz = () => {
             <div>
               <label
                 htmlFor='description'
-                className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                className='block mb-2 text-md font-medium text-gray-900 dark:text-white'>
                 Description
               </label>
               <textarea
@@ -47,24 +47,42 @@ const CreateQuiz = () => {
                 required=''
               />
             </div>
-            <div className='relative'>
-              <label
-                htmlFor='reward'
-                className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
-                Tokens for Reward
-              </label>
-              <div className='flex absolute inset-y-0 right-8 top-7 items-center pl-3 pointer-events-none'>
-                Ⓝ
+            <div className='flex gap-4 w-full'>
+              <div className='w-full'>
+                <label
+                  htmlFor='winners'
+                  className='block mb-2 text-md font-medium text-gray-900 dark:text-white'>
+                  Number of Winners
+                </label>
+                <input
+                  type='number'
+                  min={0}
+                  name='winners'
+                  id='winners'
+                  placeholder='5'
+                  className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
+                  required=''
+                />
               </div>
-              <input
-                type='number'
-                min={0}
-                name='reward'
-                id='reward'
-                placeholder='2'
-                className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
-                required=''
-              />
+              <div className='relative w-full'>
+                <label
+                  htmlFor='reward'
+                  className='block mb-2 text-md font-medium text-gray-900 dark:text-white'>
+                  Tokens for Reward
+                </label>
+                <div className='flex absolute inset-y-0 right-8 top-7 items-center pl-3 pointer-events-none'>
+                  Ⓝ
+                </div>
+                <input
+                  type='number'
+                  min={0}
+                  name='reward'
+                  id='reward'
+                  placeholder='2'
+                  className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
+                  required=''
+                />
+              </div>
             </div>
             <div className='flex items-center mb-4'>
               <input
@@ -78,24 +96,6 @@ const CreateQuiz = () => {
                 Participants can retake the quiz multiple times
               </label>
             </div>
-            <button
-              className='flex items-center bg-blue-500 hover:bg-blue-700 text-white text-xl font-semibold py-2 px-4 rounded'
-              onClick={(e) => {
-                e.preventDefault();
-                console.log();
-              }}>
-              Submit
-              <svg
-                className='ml-2 -mr-1 w-5 h-5'
-                fill='currentColor'
-                viewBox='0 0 20 20'
-                xmlns='http://www.w3.org/2000/svg'>
-                <path
-                  fillRule='evenodd'
-                  d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
-                  clipRule='evenodd'></path>
-              </svg>
-            </button>
           </form>
         </div>
         {/* Right Section */}
@@ -130,6 +130,24 @@ const CreateQuiz = () => {
                 return <AddQuestion key={i} n={i + 1} />;
               })}
             </div>
+            <button
+              className='mx-auto flex items-center bg-blue-500 hover:bg-blue-700 text-white text-xl font-semibold py-2 px-4 rounded'
+              onClick={(e) => {
+                e.preventDefault();
+                console.log();
+              }}>
+              Submit
+              <svg
+                className='ml-2 -mr-1 w-5 h-5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                xmlns='http://www.w3.org/2000/svg'>
+                <path
+                  fillRule='evenodd'
+                  d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
+                  clipRule='evenodd'></path>
+              </svg>
+            </button>
           </form>
         </div>
       </div>
