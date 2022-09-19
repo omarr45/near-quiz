@@ -14,14 +14,14 @@ const Footer = () => {
             alt='Flowbite Logo'
           />
           <span className='logo-font self-center text-3xl font-normal whitespace-nowrap dark:text-white'>
-            Quiz<bdi className='text-primary-400'>4</bdi>U
+            Quizly
           </span>
         </Link>
         {/* <p className='my-6 text-gray-500 dark:text-gray-400'>
           Create and solve quizzes with rewards on NEAR blockchain!
         </p> */}
         <p className='mt-6 text-sm text-gray-500 sm:text-center dark:text-gray-400'>
-          © {new Date().getFullYear()} Quiz4U™. All Rights Reserved.
+          © {new Date().getFullYear()} Quizly™. All Rights Reserved.
         </p>
       </div>
     </footer>

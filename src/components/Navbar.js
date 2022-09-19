@@ -13,7 +13,7 @@ const Navbar = () => {
             alt='Flowbite Logo'
           />
           <span className='logo-font self-center text-3xl font-normal whitespace-nowrap dark:text-white'>
-            Quiz<bdi className='text-primary-400'>4</bdi>U
+            Quizly
           </span>
         </Link>
 

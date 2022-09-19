@@ -5,7 +5,7 @@ const Landing = () => {
   return (
     <main className='bg-white dark:bg-gray-900 my-10 px-6 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12'>
       <h1 className='logo-font my-4 text-6xl tracking-wider font-semibold leading-none text-gray-900 md:text-7xl lg:text-8xl dark:text-white'>
-        Quiz<bdi className='text-primary-400'>4</bdi>U
+        Quizly
       </h1>
       <p className='my-12 px-4 text-2xl font-bold  text-gray-900 md:text-3xl lg:text-4xl dark:text-white max-w-3xl mx-auto'>
         Create and solve quizzes with rewards on NEAR blockchain!
