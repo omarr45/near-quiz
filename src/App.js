@@ -1,11 +1,6 @@
 import './App.css';
 
-import {
-  HashRouter,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import CreateQuiz from './components/CreateQuiz';
 import { Flowbite } from 'flowbite-react';

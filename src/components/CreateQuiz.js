@@ -5,24 +5,48 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const CreateQuiz = () => {
-  const [questions, setQuestions] = useState(1);
-  const [quizQuestions, setQuizQuestions] = useState([
-    {
-      id: 1,
+  const [form, setForm] = useState([]);
+
+  const handleAddQuestion = (e) => {
+    e.preventDefault();
+
+    const inputState = {
+      id: uuidv4(),
       question: '',
       options: [
-        { id: uuidv4(), option: '', isCorrect: true },
-        { id: uuidv4(), option: '', isCorrect: false },
+        {
+          id: uuidv4(),
+          option: '',
+          isCorrect: true,
+        },
+        {
+          id: uuidv4(),
+          option: '',
+          isCorrect: false,
+        },
       ],
-    },
-  ]);
+    };
+
+    setForm([...form, inputState]);
+  };
+
+  // const [quizQuestions, setQuizQuestions] = useState([
+  //   {
+  //     id: 1,
+  //     question: '',
+  //     options: [
+  //       { id: uuidv4(), option: '', isCorrect: true },
+  //       { id: uuidv4(), option: '', isCorrect: false },
+  //     ],
+  //   },
+  // ]);
 
   return (
     <main className='flex flex-col items-center justify-between bg-white dark:bg-gray-900 dark:text-white my-5 px-6 mx-auto max-w-4xl text-center lg:p-12 lg:pt-8'>
       <h1 className='mb-8 text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl dark:text-white'>
         Create a new Quiz
       </h1>
-      <QuestionsContext.Provider value={{ quizQuestions, setQuizQuestions }}>
+      <QuestionsContext.Provider value={{ form, setForm }}>
         <div className='flex flex-col items-start justify-between gap-0 w-full  md:gap-8'>
           {/* Left Section */}
           <div className='flex flex-col items-center justify-center text-left px-6 py-8 mx-auto w-full lg:p-0'>
@@ -115,50 +139,25 @@ const CreateQuiz = () => {
           <div className='flex flex-col items-center justify-center text-left px-6 py-8 mx-auto w-full lg:p-0'>
             <h2 className='mb-3 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
               Configure Questions
-              {/* <button
-              className='h-8 w-8 text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium  rounded-full text-sm p-2.5 text-center inline-flex items-center justify-center ml-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800'
-              onClick={(e) => {
-                e.preventDefault();
-                setQuestions(questions + 1);
-              }}>
-              <span className='text-lg'>+</span>
-            </button>
-            <button
-              className='h-8 w-8 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium  rounded-full text-sm p-2.5 text-center inline-flex items-center justify-center ml-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800'
-              onClick={(e) => {
-                e.preventDefault();
-                if (questions > 1) {
-                  setQuestions(questions - 1);
-                }
-              }}>
-              <span className='text-lg'>-</span>
-            </button> */}
             </h2>
             <form
+              key='my-form'
               className='space-y-2 md:space-y-4 w-full'
               action='#'
               autoComplete='false'>
               <div className='flex flex-col gap-4'>
-                {quizQuestions.map((question, index) => {
+                {form.map((item, index) => {
                   return (
-                    <AddQuestion key={index} id={question.id} n={index + 1} />
+                    <AddQuestion
+                      key={index}
+                      id={item.id}
+                      n={index + 1}
+                      options={item.options}
+                    />
                   );
                 })}
                 <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setQuizQuestions([
-                      ...quizQuestions,
-                      {
-                        id: quizQuestions.length + 1,
-                        question: '',
-                        options: [
-                          { id: uuidv4(), option: '', isCorrect: true },
-                          { id: uuidv4(), option: '', isCorrect: false },
-                        ],
-                      },
-                    ]);
-                  }}
+                  onClick={handleAddQuestion}
                   className='text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-md text-md p-2.5 text-center inline-flex items-center justify-center dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800'>
                   Add a new question
                 </button>
@@ -167,19 +166,9 @@ const CreateQuiz = () => {
                 className='mx-auto flex items-center bg-blue-500 hover:bg-blue-700 text-white text-xl font-semibold py-2 px-4 rounded'
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log(quizQuestions);
+                  console.log(form);
                 }}>
-                Submit
-                <svg
-                  className='ml-2 -mr-1 w-5 h-5'
-                  fill='currentColor'
-                  viewBox='0 0 20 20'
-                  xmlns='http://www.w3.org/2000/svg'>
-                  <path
-                    fillRule='evenodd'
-                    d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
-                    clipRule='evenodd'></path>
-                </svg>
+                Submit (to console)
               </button>
             </form>
           </div>
