@@ -32,17 +32,27 @@ const Profile = () => {
           </div>
           <div className='flex flex-col gap-2 mr-auto ml-8 items-start'>
             <h2 className='text-3xl font-bold'>Welcome, Omar</h2>
-            <h4 className='text-1xl font-semibold'>omar45.testnet</h4>
+            <h4 className='text-lg font-semibold'>omar45.testnet</h4>
           </div>
         </div>
         <Link
           to={'/create'}
-          className='mt-5 md:mt-0 inline-flex items-center py-4 px-6 md:py-2 md:px-3 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
-          Create a new Quiz
+          className='mt-8 md:mt-0 hidden md:inline-flex flex-col gap-0 items-center py-4 px-6 text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+          <h5 className='font-semibold text-lg'>Create a new Quiz*</h5>
+          <p className='text-sm font-medium'>*Costs 1 NEAR</p>
         </Link>
       </header>
 
       <ul className='grid gap-4 w-full mt-4 font-bold md:grid-cols-2'>
+        <li className='md:hidden'>
+          <Link
+            to={'/create'}
+            className='flex flex-col gap-0 p-3 items-center text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+            <h5 className='font-semibold text-lg'>Create a new Quiz*</h5>
+            <p className='text-sm font-medium'>*Costs 1 NEAR</p>
+          </Link>
+          <hr className='mt-4 dark:opacity-25' />
+        </li>
         <li>
           <input
             type='radio'
