@@ -22,20 +22,22 @@ const Profile = () => {
   return (
     <div className='px-6 mx-auto max-w-4xl text-center lg:py-5 lg:px-12 dark:text-white'>
       {/* avatar */}
-      <header className='flex justify-evenly items-center pb-4'>
-        <div className='w-28 rounded-full overflow-hidden'>
-          <img
-            src='https://placeimg.com/192/192/people'
-            alt='avatar placeholder'
-          />
-        </div>
-        <div className='flex flex-col gap-2 mr-auto ml-8 items-start'>
-          <h2 className='text-3xl font-bold'>Welcome, Omar</h2>
-          <h4 className='text-1xl font-semibold'>omar45.testnet</h4>
+      <header className='flex flex-col justify-between items-center pb-4 md:flex-row md:mt-0 mt-8'>
+        <div className='flex items-center'>
+          <div className='w-28 rounded-full overflow-hidden'>
+            <img
+              src='https://placeimg.com/192/192/people'
+              alt='avatar placeholder'
+            />
+          </div>
+          <div className='flex flex-col gap-2 mr-auto ml-8 items-start'>
+            <h2 className='text-3xl font-bold'>Welcome, Omar</h2>
+            <h4 className='text-1xl font-semibold'>omar45.testnet</h4>
+          </div>
         </div>
         <Link
           to={'/create'}
-          className='inline-flex items-center py-2 px-3 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+          className='mt-5 md:mt-0 inline-flex items-center py-4 px-6 md:py-2 md:px-3 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
           Create a new Quiz
         </Link>
       </header>
