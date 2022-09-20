@@ -1,7 +1,8 @@
 import { DarkThemeToggle } from 'flowbite-react';
 import { Link } from 'react-router-dom';
+import { login } from '../utils/near';
 
-const Navbar = () => {
+const Navbar = ({ account }) => {
   return (
     <nav className='bg-white border-gray-200 p-4 shadow-md mb-3 sm:px-4 py-5co dark:bg-gray-800'>
       <div className='container flex flex-wrap justify-between items-center max-w-4xl mx-auto lg:px-12'>
@@ -22,11 +23,20 @@ const Navbar = () => {
           <DarkThemeToggle />
         </div>
         <div className=' hidden md:flex md:order-2'>
-          <Link
-            to={'/profile'}
-            className='ml-2 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'>
-            Login with NEAR
-          </Link>
+          {account.accountId ? (
+            <Link
+              to={'/profile'}
+              className='ml-2 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'>
+              {account.accountId}
+            </Link>
+          ) : (
+            <button
+              onClick={login}
+              className='ml-2 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'>
+              {' '}
+              Login with NEAR
+            </button>
+          )}
         </div>
       </div>
     </nav>

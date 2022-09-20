@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import QuizCard from './QuizCard';
 import React from 'react';
+import { logout } from '../utils/near';
 import { useState } from 'react';
 
-const Profile = () => {
+const Profile = ({ account }) => {
   const [chosenTab, setChosenTab] = useState(2);
 
   const myQuizzesCards = [
@@ -31,16 +32,24 @@ const Profile = () => {
             />
           </div>
           <div className='flex flex-col gap-2 mr-auto ml-8 items-start'>
-            <h2 className='text-3xl font-bold'>Welcome, Omar</h2>
-            <h4 className='text-lg font-semibold'>omar45.testnet</h4>
+            <h2 className='text-3xl font-bold'>Welcome!</h2>
+            <h4 className='text-lg font-semibold'>{account.accountId}</h4>
           </div>
         </div>
         <Link
           to={'/create'}
-          className='mt-8 md:mt-0 hidden md:inline-flex flex-col gap-0 items-center py-4 px-6 text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+          className='mt-8 md:mt-0 ml-auto hidden md:inline-flex flex-col gap-0 items-center py-4 px-6 text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
           <h5 className='font-semibold text-lg'>Create a new Quiz*</h5>
           <p className='text-sm font-medium'>*Costs 1 NEAR</p>
         </Link>
+        <button
+          title='Logout'
+          onClick={logout}
+          className='mt-8 ml-4 md:mt-0 hidden md:inline-flex flex-col gap-0 items-center py-4 px-6 text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800'>
+          <h5 className='font-semibold text-lg'>
+            <i className='fa fa-sign-out' aria-hidden='true'></i>
+          </h5>
+        </button>
       </header>
 
       <ul className='grid gap-4 w-full mt-4 font-bold md:grid-cols-2'>

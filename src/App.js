@@ -24,14 +24,20 @@ function App() {
     }
   }, []);
 
+  const account = window.walletConnection.account();
+
   return (
     <HashRouter>
       <Flowbite>
         <div className='App bg-white dark:bg-gray-900 min-h-screen'>
-          <Navbar />
+          <Navbar account={account} />
           <Routes>
-            <Route path='/' exact element={<Landing />} />
-            <Route path='/profile' exact element={<Profile />} />
+            <Route path='/' exact element={<Landing account={account} />} />
+            <Route
+              path='/profile'
+              exact
+              element={<Profile account={account} />}
+            />
             <Route path='/quiz' exact element={<TakeQuiz />} />
             <Route path='/create' exact element={<CreateQuiz />} />
           </Routes>
