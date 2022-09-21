@@ -3,7 +3,7 @@ import { Contract, WalletConnection, connect, keyStores } from 'near-api-js';
 import environment from './config';
 import { formatNearAmount } from 'near-api-js/lib/utils/format';
 
-const nearEnv = environment(process.env.REACT_APP_NEAR_NETWORK || 'testnet');
+const nearEnv = environment('testnet');
 
 export async function initializeContract() {
   // We create a near object that we will use to interact with the NEAR network.
@@ -31,9 +31,15 @@ export async function initializeContract() {
     window.walletConnection.account(),
     nearEnv.contractName,
     {
-      // viewMethods: ['getQuote', 'getQuotes'],
-      // changeMethods: ['likeQuote', 'addQuote', 'getUserQuotes'],
-      // changeMethods: ['nft_mint'],
+      viewMethods: ['getQuizByID', 'viewQuizzes', 'getQuestionBank'],
+      changeMethods: [
+        'createQuiz',
+        'createQuizFromBank',
+        'increaseWinners',
+        'addToQuestionBank',
+        'deleteQuiz',
+        'submitAnswer',
+      ],
     }
   );
 }

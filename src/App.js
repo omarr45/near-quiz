@@ -11,6 +11,8 @@ import Profile from './components/Profile';
 import TakeQuiz from './components/TakeQuiz';
 import { useEffect } from 'react';
 
+window.Buffer = window.Buffer || require('buffer').Buffer;
+
 function App() {
   useEffect(() => {
     if (
@@ -33,13 +35,9 @@ function App() {
           <Navbar account={account} />
           <Routes>
             <Route path='/' exact element={<Landing account={account} />} />
-            <Route
-              path='/profile'
-              exact
-              element={<Profile account={account} />}
-            />
-            <Route path='/quiz' exact element={<TakeQuiz />} />
-            <Route path='/create' exact element={<CreateQuiz />} />
+            <Route path='/profile' element={<Profile account={account} />} />
+            <Route path='/quiz/:quizId' element={<TakeQuiz />} />
+            <Route path='/create' element={<CreateQuiz />} />
           </Routes>
           <Footer />
         </div>

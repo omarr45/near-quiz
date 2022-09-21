@@ -1,18 +1,21 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-const QuizCard = ({ title, btn, isCreateNew }) => {
+const QuizCard = ({ title, desc, quizId, btn, isCreateNew }) => {
+  const { t } = useTranslation();
+
   if (isCreateNew)
     return (
       <div className=' p-5 mx-auto min-w-full flex justify-between align-middle bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
         <h5 className='mt-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
-          Create a new Quiz?
+          {t('quiz-card-create-title')}
         </h5>
 
         <Link
           to={'/create'}
           className='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
-          Start Now
+          {t('quiz-card-create-button')}
           <svg
             aria-hidden='true'
             className='ml-2 -mr-1 w-4 h-4'
@@ -31,12 +34,12 @@ const QuizCard = ({ title, btn, isCreateNew }) => {
   let className = '';
   let goTo = '/';
 
-  if (btn === 'Take') {
-    goTo = '/quiz';
+  if (btn === 'Take' || btn === 'اختبر الآن') {
+    goTo = '/quiz/' + quizId;
     className =
       'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800';
   } else if (btn === 'Retake') {
-    goTo = '/quiz';
+    goTo = '/quiz/' + quizId;
     className =
       'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-amber-500 rounded-lg hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 dark:bg-amber-500 dark:hover:bg-amber-600 dark:focus:ring-amber-700';
   } else if (btn === 'Results') {
@@ -51,10 +54,13 @@ const QuizCard = ({ title, btn, isCreateNew }) => {
     className =
       'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800';
   return (
-    <div className='p-5 mx-auto min-w-full flex justify-between align-middle bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
-      <h5 className='mt-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
-        {title}
-      </h5>
+    <div className='p-5 mx-auto min-w-full flex justify-between items-center bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
+      <div className='flex flex-col items-start'>
+        <h5 className='mt-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
+          {title}
+        </h5>
+        <p>{desc}</p>
+      </div>
 
       <Link to={goTo} className={className}>
         {btn}

@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className='p-4 bg-gray-100 md:p-8 lg:p-10 dark:bg-gray-800'>
       <div className='mx-auto max-w-screen-xl text-center'>
@@ -21,7 +24,7 @@ const Footer = () => {
           Create and solve quizzes with rewards on NEAR blockchain!
         </p> */}
         <p className='mt-6 text-sm text-gray-500 sm:text-center dark:text-gray-400'>
-          © {new Date().getFullYear()} Quizly™. All Rights Reserved.
+          © {new Date().getFullYear()} Quizly™. {t('footer')}
         </p>
       </div>
     </footer>
