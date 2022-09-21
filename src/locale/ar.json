@@ -39,5 +39,8 @@
   "take-quiz-previous": "السابق",
   "take-quiz-next": "التالي",
   "take-quiz-submit": "إنهاء الاختبار",
+  "take-quiz-error-title": "هذا الاختبار غير موجود",
+  "take-quiz-error-subtitle": "يرجى التأكد من الرابط / الـ ID",
+  "take-quiz-loading": "جاري التحميل ...",
   "footer": "جميع الحقوق محفوظة."
 }
